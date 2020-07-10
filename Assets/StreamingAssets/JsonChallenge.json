@@ -1,37 +1,38 @@
-{ 
-    "Title":   "Team   Members", 
-    "ColumnHeaders"   : 
-    [ 
-      "ID", 
-      "Name", 
-      "Role", 
-      "Nickname" 
-    ], 
-    "Data"   : 
-    [ 
-      { 
-          "ID"   :   "001", 
-          "Name"   :   "John   Doe", 
-          "Role"   :   "Engineer", 
-          "Nickname"   :   "KillerJo", 
-      }, 
-      { 
-          "ID"   :   "023", 
-          "Name"   :   "Claire   Dawn", 
-          "Role"   :   "Engineer", 
-          "Nickname"   :   "Claw", 
-      }, 
-      { 
-          "ID"   :   "012", 
-          "Name"   :   "Paul   Beef", 
-          "Role"   :   "Designer", 
-          "Nickname"   :   "BeefyPaul", 
-      }, 
-      { 
-          "ID"   :   "056", 
-          "Name"   :   "Sally   Sue", 
-          "Role"   :   "Artist", 
-          "Nickname"   :   "Sue5555", 
-      }, 
-    ] 
- } 
+{
+    "Title": "Team   Members",
+    "ColumnHeaders": [
+        "ID",
+        "Name",
+        "Role",
+        "Age",
+        "Nickname"
+    ],
+    "Data": [
+        {
+            "ID": "001",
+            "Name": "John   Doe",
+            "Role": "Engineer",
+            "Nickname": "KillerJo"
+        },
+        {
+            "ID": "023",
+            "Name": "Claire   Dawn",
+            "Role": "Engineer",
+            "Age": 12.2,
+            "Nickname": "Claw"
+        },
+        {
+            "ID": "012",
+            "Name": "Paul   Beef",
+            "Role": "Designer",
+            "Age": 27.1,
+            "Nickname": "BeefyPaul"
+        },
+        {
+            "ID": "056",
+            "Name": "Sally   Sue",
+            "Role": "Artist",
+            "Nickname": "Sue5555"
+        }
+    ]
+}
