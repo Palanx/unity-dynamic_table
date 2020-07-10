@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using MiniJSON;
 using System.IO;
-using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 namespace Die4Games
 {
@@ -66,10 +65,10 @@ namespace Die4Games
         {
             CleanRows();
             CleanTitle();
-            IDictionary json = Json.Deserialize(jsonText) as IDictionary;
-            string titulo = json["Title"] as string;
-            IList headers = json["ColumnHeaders"] as IList;
-            IList data = json["Data"] as IList;
+            JSONNode json = JSON.Parse(jsonText);
+            string titulo = json["Title"].Value;
+            JSONNode headers = json["ColumnHeaders"];
+            JSONNode data = json["Data"];
 
             List<string> headerData = new List<string>();
             List<List<string>> rowsData = new List<List<string>>();
@@ -80,9 +79,9 @@ namespace Die4Games
                 processing = false;
                 return;
             }
-            foreach (string header in headers)
+            foreach (JSONNode header in headers.Values)
             {
-                headerData.Add(header);
+                headerData.Add(header.Value);
             }
 
             if (data == null)
@@ -91,15 +90,16 @@ namespace Die4Games
                 processing = false;
                 return;
             }
-            foreach (IDictionary item in data)
+            foreach (JSONNode item in data.AsArray)
             {
                 List<string> colData = new List<string>();
-                foreach (string header in headers)
+                foreach (string header in headerData)
                 {
-                    if (string.IsNullOrEmpty(item[header] as string))
+                    JSONNode value = item[header];
+                    if (value == null)
                         colData.Add("-");
                     else
-                        colData.Add(item[header] as string);
+                        colData.Add(value.Value);
                 }
                 rowsData.Add(colData);
             }
