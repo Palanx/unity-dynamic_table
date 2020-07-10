@@ -8,25 +8,23 @@ namespace Die4Games
     {
         public Text txtMessage;
 
-        private void Awake()
-        {
-            InitText();
-        }
-
         private void InitText()
         {
             if (txtMessage == null)
-                txtMessage = GetComponentInChildren<Text>();
-            if (txtMessage == null)
             {
-                Debug.LogError("[Text] component missing in DynamicColumn children");
-                return;
-            }
-            txtMessage.text = string.Empty;
+                txtMessage = GetComponentInChildren<Text>();
+                if (txtMessage == null)
+                {
+                    Debug.LogError("[Text] component missing in DynamicColumn children");
+                    return;
+                }
+                txtMessage.text = string.Empty;
+            } 
         }
 
         public void Build(string text, bool isHeader)
         {
+            InitText();
             if (txtMessage == null || text == null)
                 return;
             if (isHeader)
